@@ -21,20 +21,20 @@
 
   <script>
     function processInput(input) {
-      const lines = input.split('\n');
-      const output = [];
+  const lines = input.split('\n');
+  const output = [];
 
-      for (const line of lines) {
-        const emailAndPassword = line.match(/E-Mail\/Passwort: ([^|]+)\s*\|/)?.[1];
-        const kleinanzeigenPassword = line.match(/Kleinanzeigen Passwort: ([^|]+)\s*\|/)?.[1];
+  for (const line of lines) {
+    const emailAndPassword = line.match(/E-Mail\/Passwort: ([^|]+?)\s*\|/)?.[1];
+    const kleinanzeigenPassword = line.match(/Kleinanzeigen Passwort: ([^|]+?)\s*\|/)?.[1];
 
-        if (emailAndPassword && kleinanzeigenPassword) {
-          output.push(`${emailAndPassword}:${kleinanzeigenPassword}`);
-        }
-      }
-
-      return output;
+    if (emailAndPassword && kleinanzeigenPassword) {
+      output.push(`${emailAndPassword}:${kleinanzeigenPassword}`);
     }
+  }
+
+  return output;
+}
 
     document.getElementById('process').addEventListener('click', () => {
       const input = document.getElementById('input').value;
