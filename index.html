@@ -28,7 +28,7 @@
     const split = line.split(":");
     const combo = split[0] + ":" + split[1] + ":" + split[2];
 
-    if (combo) {
+    if (combo && line != "") {
       output.push(combo);
     }
   }
