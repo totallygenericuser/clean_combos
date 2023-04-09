@@ -26,7 +26,7 @@
 
   for (const line of lines) {
     const split = line.split(":");
-    const combo = emailAndPassword[0] + emailAndPassword[1] + emailAndPassword[2];
+    const combo = split[0] + split[1] + split[2];
 
     if (combo) {
       output.push(combo);
