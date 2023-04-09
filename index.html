@@ -25,11 +25,11 @@
   const output = [];
 
   for (const line of lines) {
-    const emailAndPassword = line.split(":");
-    const kleinanzeigenPassword = emailAndPassword[0] + emailAndPassword[1] + emailAndPassword[2];
+    const split = line.split(":");
+    const combo = emailAndPassword[0] + emailAndPassword[1] + emailAndPassword[2];
 
-    if (emailAndPassword && kleinanzeigenPassword) {
-      output.push(`${emailAndPassword}:${kleinanzeigenPassword}`);
+    if (combo) {
+      output.push(combo);
     }
   }
 
