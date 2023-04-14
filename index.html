@@ -25,11 +25,18 @@
   const output = [];
 
   for (const line of lines) {
-    const split = line.split(":");
-    const combo = split[0] + ":" + split[1] + ":" + split[2];
+    const emailAndPassword = line.match(/E-Mail\/Passwort: ([^|]+?)\s*\|/)?.[1];
+    const kleinanzeigenPassword = line.match(/Kleinanzeigen Passwort: ([^|]+?)\s*\|/)?.[1];
 
-    if (combo && line != "") {
-      output.push(combo);
+    if (emailAndPassword && kleinanzeigenPassword) {
+      output.push(`${emailAndPassword}:${kleinanzeigenPassword}`);
+    } else {
+      const split = line.split(":");
+      const combo = split[0] + ":" + split[1] + ":" + split[2];
+
+      if (combo && line != "") {
+        output.push(combo);
+      }
     }
   }
 
